@@ -1,0 +1,28 @@
+<html>
+<head>
+<script>
+	function copyToClipboard() {  // copy function, same as in the index.html
+		var codeBlock = document.querySelector("pre").innerText;
+		navigator.clipboard.writeText(codeBlock).then(function() {
+			const hintElement = document.getElementById('textHint');
+    		hintElement.style.display = hintElement.style.display === 'none' ? 'block' : 'none';
+		}, function() {
+			const hintElement = document.getElementById('textHintError');
+    		hintElement.style.display = hintElement.style.display === 'none' ? 'block' : 'none';
+		});
+	}
+</script>
+</head>
+<pre>
+@inproceedings{yang2021multi,
+    title={Multi-view contrastive learning for online knowledge distillation},
+    author={Yang, Chuanguang and An, Zhulin and Xu, Yongjun},
+    booktitle={ICASSP 2021-2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+    pages={3750--3754},
+    year={2021},
+    organization={IEEE}
+}
+</pre>
+<button class="copy-button" onclick="copyToClipboard()">copy</button>
+<p id="textHint" style="display: none;">Citation copied!</p>
+<p id="textHintError" style="display: none;">Copy failed, please copy manually!</p>

@@ -1,0 +1,27 @@
+<html>
+<head>
+<script>
+	function copyToClipboard() {  // copy function, same as in the index.html
+		var codeBlock = document.querySelector("pre").innerText;
+		navigator.clipboard.writeText(codeBlock).then(function() {
+			const hintElement = document.getElementById('textHint');
+    		hintElement.style.display = hintElement.style.display === 'none' ? 'block' : 'none';
+		}, function() {
+			const hintElement = document.getElementById('textHintError');
+    		hintElement.style.display = hintElement.style.display === 'none' ? 'block' : 'none';
+		});
+	}
+</script>
+</head>
+<pre>
+@inproceedings{yang2021hierarchical,
+    title={Hierarchical self-supervised augmented knowledge distillation},
+    author={Yang, Chuanguang and An, Zhulin and Cai, Linhang and Xu, Yongjun},
+    booktitle={Proceedings of the Thirtieth International Joint Conference on Artificial Intelligence},
+    pages={1217--1223},
+    year={2021}
+}
+</pre>
+<button class="copy-button" onclick="copyToClipboard()">copy</button>
+<p id="textHint" style="display: none;">Citation copied!</p>
+<p id="textHintError" style="display: none;">Copy failed, please copy manually!</p>

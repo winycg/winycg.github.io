@@ -1,0 +1,28 @@
+<html>
+<head>
+<script>
+	function copyToClipboard() {  // copy function, same as in the index.html
+		var codeBlock = document.querySelector("pre").innerText;
+		navigator.clipboard.writeText(codeBlock).then(function() {
+			const hintElement = document.getElementById('textHint');
+    		hintElement.style.display = hintElement.style.display === 'none' ? 'block' : 'none';
+		}, function() {
+			const hintElement = document.getElementById('textHintError');
+    		hintElement.style.display = hintElement.style.display === 'none' ? 'block' : 'none';
+		});
+	}
+</script>
+</head>
+<pre>
+@incollection{yang2023categories,
+    title={Categories of response-based, feature-based, and relation-based knowledge distillation},
+    author={Yang, Chuanguang and Yu, Xinqiang and An, Zhulin and Xu, Yongjun},
+    booktitle={Advancements in knowledge distillation: towards new horizons of intelligent systems},
+    pages={1--32},
+    year={2023},
+    publisher={Springer}
+}
+</pre>
+<button class="copy-button" onclick="copyToClipboard()">copy</button>
+<p id="textHint" style="display: none;">Citation copied!</p>
+<p id="textHintError" style="display: none;">Copy failed, please copy manually!</p>

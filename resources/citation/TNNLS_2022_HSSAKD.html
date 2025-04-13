@@ -1,0 +1,30 @@
+<html>
+<head>
+<script>
+	function copyToClipboard() {  // copy function, same as in the index.html
+		var codeBlock = document.querySelector("pre").innerText;
+		navigator.clipboard.writeText(codeBlock).then(function() {
+			const hintElement = document.getElementById('textHint');
+    		hintElement.style.display = hintElement.style.display === 'none' ? 'block' : 'none';
+		}, function() {
+			const hintElement = document.getElementById('textHintError');
+    		hintElement.style.display = hintElement.style.display === 'none' ? 'block' : 'none';
+		});
+	}
+</script>
+</head>
+<pre>
+@article{yang2022knowledge,
+    title={Knowledge distillation using hierarchical self-supervision augmented distribution},
+    author={Yang, Chuanguang and An, Zhulin and Cai, Linhang and Xu, Yongjun},
+    journal={IEEE transactions on neural networks and learning systems},
+    volume={35},
+    number={2},
+    pages={2094--2108},
+    year={2022},
+    publisher={IEEE}
+}
+</pre>
+<button class="copy-button" onclick="copyToClipboard()">copy</button>
+<p id="textHint" style="display: none;">Citation copied!</p>
+<p id="textHintError" style="display: none;">Copy failed, please copy manually!</p>
