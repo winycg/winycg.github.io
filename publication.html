@@ -107,25 +107,25 @@
             margin: 3em auto 2em auto;
             width: 1000px;
             font-family: Times New Roman;
-            font-size: 18px;
+            font-size: 16px;
             background: #eee;
         }
 
         h2 {
             font-family: Times New Roman;
-            font-size: 18pt;
+            font-size: 16px;
             font-weight: 700;
         }
 
         h3 {
             font-family: Times New Roman;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
         }
 
         strong {
             font-family: Times New Roman;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
         }
 
@@ -202,6 +202,74 @@
         div.paper pre {
             font-size: 0.9em;
         }
+
+        /* 导航栏 */
+.navbar {
+    display: flex; /* 使用flex布局 */
+    align-items: center; /* 垂直居中 */
+    background-color: #0156a3;
+    position: fixed; /* fix to the top of the page. 固定在页面顶部 */
+    top: 0;
+    left: 0; /* 确保从最左边开始 */
+    right: 0; /* 确保延伸到最右边 */
+    width: 100%;
+    height: 45px;
+    z-index: 1000; /* ensure the navigation bar is above other content. 保证导航栏在其他内容之上 */
+    padding: 0 11%; /* 添加一些内边距 */
+    box-sizing: border-box; /* 确保padding包含在width内 */
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-right: 4%; /*图片和链接之间的间距*/
+}
+        .navbar-logo img {
+    height: 80%; /* 固定图片高度 */
+    width: auto; /* 保持宽高比 */
+}
+
+.navbar-logo a {
+    display: inline-flex; /* 改为inline-flex */
+    align-items: center;
+    color: white;
+    padding: 0 15px; /* 减少左右padding */
+    height: 100%;
+    text-decoration: none;
+    font-size: 18px;
+    scroll-margin-top: 100px;
+}
+
+.navbar-links {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    flex-grow: 1; /* 让链接区域占据剩余空间 */
+    justify-content: flex-start; /* 左对齐 */
+    overflow-x: auto; /* 允许横向滚动 */
+    white-space: nowrap; /* 防止换行 */
+}
+
+/* 修改链接项 */
+.navbar-links a {
+    display: inline-flex; /* 改为inline-flex */
+    align-items: center;
+    color: white;
+    padding: 0 15px; /* 减少左右padding */
+    height: 100%;
+    text-decoration: none;
+    font-size: 18px;
+    scroll-margin-top: 100px;
+}
+
+/* effect on mouse hover */
+/* 鼠标悬停时的效果 */
+.navbar a:hover {
+    background-color: #002D72;
+    color: white;
+    height: 100%;
+}
     </style>
 
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
@@ -223,7 +291,21 @@
 <!--<div style="clear: both; background-color: #fff; margin-top: 1.5em; padding: .2em; padding-left: .3em;">-->
 
 
-
+<!-- Navigation bar -->
+<div class="navbar">
+    <div class="navbar-logo">
+        <a href="index.html"><img src="./resources/images/ict.png"></a>
+    </div>
+    <div class="navbar-links">
+        <a href="index.html#about_me">About Me</a>
+        <a href="index.html#research_interests">Research Interests</a>
+        <a href="index.html#news">News</a>
+        <a href="index.html#Recruiting">Recruiting</a>
+        <a href="index.html#confpapers">Publications</a>
+        <a href="index.html#funding">Funding</a>
+        <!-- <a href="/html/record.html" class="record-button" id="recordButton">Record</a> -->
+    </div>
+</div>
 
 
 <div style="clear: both;">
