@@ -144,7 +144,7 @@
 
         alert {
             font-family: Times New Roman;
-            font-size: 20px;
+            font-size: 16px;
             font-weight: bold;
             color: #FF0000;
         }
@@ -422,22 +422,28 @@
                     [2025.5] One paper was accepted by KDD-2025
                 </li>
                 <li>
+                    [2025.5] One amazing review about Decision Intelligence was accepted by The Innovation
+                </li>
+                <li>
                     [2025.5] Two papers were accepted by ICML-2025
                 </li>
                 <li>
                     [2025.2] One paper was accepted by CVPR-2025
                 </li>
                 <li>
-                    [2025.1] Three papers were accepted by AAAI-2025
+                    [2025.1] Three papers were accepted by AAAI-2025 (2 Oral)
                 </li>
                 <li>
-                    [2024.7] One paper was accepted by ACM MM-2024
+                    [2024.7] One paper was accepted by ACM MM-2024 (Oral)
                 </li>
                 <li>
                     [2024.5] One paper was accepted by ICML-2024
                 </li>
                 <li>
                     [2024.2] One paper was accepted by CVPR-2024
+                </li>
+                <li>
+                    [2023.12] One paper was accepted by AAAI-2024
                 </li>
                 <li class="more-news" style="display:none;">
                     [2023.7] One paper was accepted by ICCV-2023
@@ -710,34 +716,12 @@
                 <div class="paper">
                     <ul>
                         <li>
-                            Conference:
-                            <br>
-                            CVPR-2022~2025
-                            <br>
-                            ECCV-2022, 2024
-                            <br>
-                            ICCV-2023
-                            <br>
-                            AAAI-2022~2025
-                            <br>
-                            IJCAI-2023~2024
-                            <br>
-                            NeurIPS-2024~2025
-                            <br>
-                            ICLR-2025
-                            <br>
-                            ICML-2025
-                            <br>
-                            ACM MM-2021~2023
-                            <br>
-                            ACCV-2024
+                            <strong>Conference</strong>: CVPR (2022~2025), ECCV (2022~2024), ICCV (2023~2025), AAAI (2022~2025), IJCAI (2023~2024),
+                            NeurIPS (2024~2025), ICLR (2025), ICML (2025), ACM MM (2021~2023), ACCV (2024)
                         </li>
                         <li>
-                            Journal:
-                            <br>
-                            IEEE Transactions on Neural Networks and Learning Systems
-                            <br>
-                            Applied Artificial Intelligence
+                            <strong>Journal</strong>:
+                            IEEE Transactions on Neural Networks and Learning Systems, Applied Artificial Intelligence
                         </li>
                     </ul>
                 </div>
@@ -773,37 +757,61 @@
 
         <div style="clear: both;">
             <div class="section">
-                <h2 id="confpapers">Honor</h2>
+                <h2 id="confpapers">Honor <button class="more-button" id="HonorChinese">中文版</button><button  class="more-button" id="HonorEnglish">English</button> </h2>
                 <div class="paper">
                     <ul>
                         <li>
-                            CCF Doctoral Dissertation Incentive Program Nomination (CCF博士学位论文激励计划提名), 2024
+                            <p id="ccf">[2024] CCF Doctoral Dissertation Incentive Program Nomination</p>
                         </li>
                         <li>
-                            Top One Hundred New Star of ICT (中科院计算所新百星), 2024
+                            <p id="star">[2024] Top One Hundred New Star of ICT</p>
                         </li>
                         <li>
-                            Class A of Specific Assistant Researcher (特别研究助理A类), 2024
+                            <p id="classA">[2024] Class A of Specific Assistant Researcher</p>
                         </li>
                         <li>
-                            Special Prize of President Scholarship, Chinese Academy of Sciences (中国科学院院长特别奖), 2023, [2023年度计算所仅1项，为中国科学院对在学研究生的最高奖励]
+                            <p id="Special">[2023] Special Prize of President Scholarship, Chinese Academy of Sciences (In 2023, the ICT had only one recipient of this award, which is the highest honor granted by the Chinese Academy of Sciences to its graduate students.)</p><a href="https://youth.ucas.ac.cn/index.php/en/txkx/3697-2023">喜报！2023年度“中国科学院院长特别奖”获奖名单公布！</a>
                         </li>
                         <li>
-                            National Scholarship (研究生国家奖学金), 2020
+                            <p id="Scholarship1">[2020] National Scholarship</p>
                         </li>
                         <li>
-                            President's Scholarship of ICT (中科院计算所所长奖学金), 2020
+                            <p id="ScholarshipP">[2020] President's Scholarship of ICT</p>
                         </li>
                         <li>
-                            National Scholarship for Undergraduate Student (本科生国家奖学金), 2017
+                            <p id="Scholarship2">[2017] National Scholarship for Undergraduate Student</p>
                         </li>
                         <li>
-                            First Prize of National Mathematical Contest in Modeling (本科生数学建模国家一等奖), 2016
+                            <p id="Mathematical">[2016] First Prize of National Mathematical Contest in Modeling</p>
                         </li>
                         <li>
-                            Bronze Medal of ACM-ICPC Asia Regional Contest (ACM-ICPC亚洲区域赛铜奖), 2016
+                            <p id="ACM">[2016] Bronze Medal of ACM-ICPC Asia Regional Contest</p>
                         </li>
                     </ul>
+                    <script>
+                        document.getElementById('HonorEnglish').addEventListener('click', function() {
+                            document.getElementById('ccf').textContent = '[2024] CCF Doctoral Dissertation Incentive Program Nomination';
+                            document.getElementById('star').textContent = '[2024] Top One Hundred New Star of ICT';
+                            document.getElementById('classA').textContent = '[2024] Class A of Specific Assistant Researcher';
+                            document.getElementById('Special').textContent = '[2023] Special Prize of President Scholarship, Chinese Academy of Sciences (In 2023, the ICT had only one recipient of this award, which is the highest honor granted by the Chinese Academy of Sciences to its graduate students.)';
+                            document.getElementById('Scholarship1').textContent = '[2020] National Scholarship';
+                            document.getElementById('ScholarshipP').textContent = '[2020] President\'s Scholarship of ICT';
+                            document.getElementById('Scholarship2').textContent = '[2017] National Scholarship for Undergraduate Student';
+                            document.getElementById('Mathematical').textContent = '[2016] First Prize of National Mathematical Contest in Modeling';
+                            document.getElementById('ACM').textContent = '[2016] Bronze Medal of ACM-ICPC Asia Regional Contest';
+                        });
+                        document.getElementById('HonorChinese').addEventListener('click', function() {
+                            document.getElementById('ccf').textContent = '[2024] CCF博士学位论文激励计划提名';
+                            document.getElementById('star').textContent = '[2024] 中科院计算所新百星';
+                            document.getElementById('classA').textContent = '[2024] 特别研究助理A类';
+                            document.getElementById('Special').textContent = '[2023] 中国科学院院长特别奖（2023年度计算所仅1项，为中国科学院对在学研究生的最高奖励）';
+                            document.getElementById('Scholarship1').textContent = '[2020] 研究生国家奖学金';
+                            document.getElementById('ScholarshipP').textContent = '[2020] 中科院计算所所长奖学金';
+                            document.getElementById('Scholarship2').textContent = '[2017] 本科生国家奖学金';
+                            document.getElementById('Mathematical').textContent = '[2016] 本科生全国数学建模竞赛国家一等奖';
+                            document.getElementById('ACM').textContent = '[2016] ACM-ICPC亚洲区域赛铜奖';
+                        });
+                        </script>
                     <div class="spanner"></div>
                 </div>
             </div>
