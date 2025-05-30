@@ -345,7 +345,7 @@
         <a href="#news">News</a>
         <a href="#Recruiting">Recruiting</a>
         <a href="#confpapers">Publications</a>
-        <a href="#funding">Funding</a>
+        <a href="#Honor">Honor</a>
         <!-- <a href="/html/record.html" class="record-button" id="recordButton">Record</a> -->
     </div>
 </div>
@@ -728,40 +728,26 @@
             </div>
         </div>
 
-        <div style="clear: both;">
-            <div class="section">
-                <h2 id="funding">Funding</h2>
-                <div class="paper">
-                    <ul>
-                        <li>
-                            Youth Science Fund of the National Natural Science Foundation of China
-                            <br>
-                            国家自然科学基金青年科学基金，经费30万
-                        </li>
-                        <li>
-                            China National Postdoctoral Program for Innovative Talents
-                            <br>
-                            博士后创新人才支持计划，2024年度全国不限专业共500人，经费64万
-                        </li>
-                        <li>
-                            Chinese Academy of Sciences Specific Research Assistant Funding Program
-                            <br>
-                            中国科学院特别研究助理资助项目，2023年度中科院计算所共6项
-                        </li>
-                    </ul>
-                    <div class="spanner"></div>
-                </div>
-            </div>
-        </div>
-
 
         <div style="clear: both;">
             <div class="section">
-                <h2 id="confpapers">Honor <button class="more-button" id="HonorChinese">中文版</button><button  class="more-button" id="HonorEnglish">English</button> </h2>
+                <h2 id="Honor">Honor<button class="more-button" id="HonorChinese">中文版</button><button  class="more-button" id="HonorEnglish">English</button> </h2>
                 <div class="paper">
                     <ul>
                         <li>
-                            <p id="ccf">[2024] CCF Doctoral Dissertation Incentive Program Nomination</p>
+                            <p id="Youth">[2024] Youth Science Fund of the National Natural Science Foundation of China (funding: 30w yuan)</p>
+                        </li>
+                        <li>
+                            <p id="Talents">[2024] China National Postdoctoral Program for Innovative Talents (nationwide 500 selected candidates, funding: 64w yuan)</p>
+                            <a href="https://www.chinapostdoctor.org.cn/article?inid=82116029-75c1-4069-b382-7363c7cd076f&catname=%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">全国博士后管委会办公室关于2024年度博士后创新人才支持计划获选结果的通知</a>
+                        </li>
+                        <li>
+                            <p id="Specific">[2024] Chinese Academy of Sciences Specific Research Assistant Funding Program (funding: 100w yuan)</p>
+                        </li>
+                        <li>
+                            <p id="ccf">[2024] CCF Doctoral Dissertation Award Nomination</p>
+                            <a href="https://mp.weixin.qq.com/s/a8RQ8FCwMKoDXwjjXJ7v1g">2024年“CCF博士学位论文激励计划”评选结果公告</a>
+                            
                         </li>
                         <li>
                             <p id="star">[2024] Top One Hundred New Star of ICT</p>
@@ -770,10 +756,11 @@
                             <p id="classA">[2024] Class A of Specific Assistant Researcher</p>
                         </li>
                         <li>
-                            <p id="Special">[2023] Special Prize of President Scholarship, Chinese Academy of Sciences (In 2023, the ICT had only one recipient of this award, which is the highest honor granted by the Chinese Academy of Sciences to its graduate students.)</p><a href="https://youth.ucas.ac.cn/index.php/en/txkx/3697-2023">喜报！2023年度“中国科学院院长特别奖”获奖名单公布！</a>
+                            <p id="Special">[2023] Special Prize of President Scholarship, Chinese Academy of Sciences (In 2023, the ICT had only one recipient of this award, which is the highest honor granted by the Chinese Academy of Sciences to its graduate students.)</p>
+                            <a href="https://youth.ucas.ac.cn/index.php/en/txkx/3697-2023">喜报！2023年度“中国科学院院长特别奖”获奖名单公布！</a>
                         </li>
                         <li>
-                            <p id="Scholarship1">[2020] National Scholarship</p>
+                            <p id="Scholarship1">[2020] National Scholarship for Master's Students</p>
                         </li>
                         <li>
                             <p id="ScholarshipP">[2020] President's Scholarship of ICT</p>
@@ -790,22 +777,28 @@
                     </ul>
                     <script>
                         document.getElementById('HonorEnglish').addEventListener('click', function() {
-                            document.getElementById('ccf').textContent = '[2024] CCF Doctoral Dissertation Incentive Program Nomination';
+                            document.getElementById('Youth').textContent = '[2024] Youth Science Fund of the National Natural Science Foundation of China (funding: 30w yuan)';
+                            document.getElementById('Talents').textContent = '[2024] China National Postdoctoral Program for Innovative Talents (nationwide 500 selected candidates, funding: 64w yuan)';
+                            document.getElementById('Specific').textContent = '[2024] Chinese Academy of Sciences Specific Research Assistant Funding Program (funding: 100w yuan)';
+                            document.getElementById('ccf').textContent = '[2024] CCF Doctoral Dissertation Award Nomination';
                             document.getElementById('star').textContent = '[2024] Top One Hundred New Star of ICT';
                             document.getElementById('classA').textContent = '[2024] Class A of Specific Assistant Researcher';
                             document.getElementById('Special').textContent = '[2023] Special Prize of President Scholarship, Chinese Academy of Sciences (In 2023, the ICT had only one recipient of this award, which is the highest honor granted by the Chinese Academy of Sciences to its graduate students.)';
-                            document.getElementById('Scholarship1').textContent = '[2020] National Scholarship';
+                            document.getElementById('Scholarship1').textContent = '[2020] National Scholarship for Master\'s Students';
                             document.getElementById('ScholarshipP').textContent = '[2020] President\'s Scholarship of ICT';
                             document.getElementById('Scholarship2').textContent = '[2017] National Scholarship for Undergraduate Student';
                             document.getElementById('Mathematical').textContent = '[2016] First Prize of National Mathematical Contest in Modeling';
                             document.getElementById('ACM').textContent = '[2016] Bronze Medal of ACM-ICPC Asia Regional Contest';
                         });
                         document.getElementById('HonorChinese').addEventListener('click', function() {
+                            document.getElementById('Youth').textContent = '国家自然科学基金青年科学基金（经费：30万）';
+                            document.getElementById('Talents').textContent = '博士后创新人才支持计划（全国500人，经费：64万）';
+                            document.getElementById('Specific').textContent = '中国科学院特别研究助理资助项目（经费：100万）';
                             document.getElementById('ccf').textContent = '[2024] CCF博士学位论文激励计划提名';
                             document.getElementById('star').textContent = '[2024] 中科院计算所新百星';
                             document.getElementById('classA').textContent = '[2024] 特别研究助理A类';
                             document.getElementById('Special').textContent = '[2023] 中国科学院院长特别奖（2023年度计算所仅1项，为中国科学院对在学研究生的最高奖励）';
-                            document.getElementById('Scholarship1').textContent = '[2020] 研究生国家奖学金';
+                            document.getElementById('Scholarship1').textContent = '[2020] 硕士研究生国家奖学金';
                             document.getElementById('ScholarshipP').textContent = '[2020] 中科院计算所所长奖学金';
                             document.getElementById('Scholarship2').textContent = '[2017] 本科生国家奖学金';
                             document.getElementById('Mathematical').textContent = '[2016] 本科生全国数学建模竞赛国家一等奖';
