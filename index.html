@@ -351,24 +351,51 @@
     </div>
 </div>
 
-<div style="margin-bottom: 1em; border: 1px solid #ddd; background-color: #fff; padding: 1em; height: 180px;">
+<div style="margin-bottom: 1em; border: 1px solid #ddd; background-color: #fff; padding: 1em; min-height: 180px;">
     <div style="margin: 0px auto; width: 100%;">
-        <img title="implus" style="float: left; padding-left: .01em; height: 140px;"
-             src="./resources/images/me.jpg">
-        <div style="padding-left: 10em; vertical-align: top; height: 180px;">
+        
+        <div style="float: left; width: 140px; text-align: center; margin-right: 20px;">
+    
+    <img title="implus" style="height: 140px; width: auto; display: block; margin: 0 auto;" 
+         src="./resources/images/me.jpg">
+    
+    <div style="display: flex; justify-content: center; gap: 10px; margin-top: 10px;">
+        
+        <a href="https://scholar.google.com/citations?user=gYyDQqAAAAAJ" title="GoogleScholar" target="_blank">
+            <img style="width: 20px; height: 20px; display: block;" src="./resources/images/google scholar.png" alt="GoogleScholar"> 
+        </a>
+        <a href="https://github.com/winycg" title="GitHub" target="_blank">
+            <img style="width: 20px; height: 20px; display: block;" src="./resources/images/github.png" alt="GitHub"> 
+        </a>
+
+        <a href="https://blog.csdn.net/winycg" title="CSDN" target="_blank">
+            <img style="width: 30px; height: 20px; display: block;" src="./resources/images/csdn.png" alt="CSDN"> 
+        </a>
+        <a href="https://www.xiaohongshu.com/user/profile/60589b1d00000000010034e3?xsec_token=YB7CFcWKADJJa7Xi3FchhF8DDfIPl7vl1PQV1jiY1QKoU=&xsec_source=app_share&xhsshare=&shareRedId=ODY3ODxHNU02NzUyOTgwNjY0OTc3OUs8&apptime=1766025661&share_id=d28d560403164cec936157dbd4503fa2&share_channel=wechat&wechatWid=ca1b4702ee8a85d79f6d6abe765e12a2&wechatOrigin=menu" title="RedBook" target="_blank">
+            <img style="width: 20px; height: 20px; display: block;" src="./resources/images/redbook.png" alt="RedBook"> 
+        </a>
+        <a href="mailto:yangchuanguang@ict.ac.cn" title="Email" target="_blank">
+            <img style="width: 20px; height: 20px; display: block;" src="./resources/images/mail.png" alt="Email"> 
+        </a>
+
+    </div>
+    
+    </div>
+
+        <div style="padding-left: 170px; vertical-align: top;">
             <span style="line-height: 150%; font-size: 20pt;">Chuanguang Yang (杨传广)</span><br>
             <span> Institute of Computing Technology, Chinese Academy of Sciences (ICT, CAS)</span><br>
-<span><strong>Address</strong>: No.6 Kexueyuan South Road Zhongguancun,Haidian District Beijing,China</span><br>
-            <span><strong>Email</strong>: yangchuanguang@ict.ac.cn </span> <br>
-            <span> <a href="https://blog.csdn.net/winycg">Blog</a></span> |
-            <span> <a href="https://github.com/winycg">GitHub</a></span> |
-            <span> <a href="https://scholar.google.com/citations?user=gYyDQqAAAAAJ">Google Scholar</a></span>
+            <span><strong>Address1</strong>: No.6 Kexueyuan South Road Zhongguancun, Haidian District, Beijing, China</span><br>
+            <span><strong>Address2</strong>: No.158 Beiqing Road, Haidian District, Beijing, China</span> (our main workplace, beautiful scenery and quiet environment)
             <br>
-            I am an associate professor at the <a href="https://klais.ict.ac.cn/">State Key Laboratory of AI Safety</a>, from <a href="http://www.ict.ac.cn/">Institute of Computing Technology, Chinese Academy of Sciences</a> (2023.7~now). 
-            I got my Ph.D. degree from Institute of Computing Technology, Chinese Academy of Sciences (2018.9~2023.6), supervised by <a href="https://scholar.google.com/citations?user=daBvGcMAAAAJ">Prof. Zhulin An</a> and <a href="https://scholar.google.com/citations?user=l34KxTYAAAAJ">Prof. Yongjun Xu</a>. 
+            I am an Associate Professor at the <a href="https://klais.ict.ac.cn/">State Key Laboratory of AI Safety</a>, from <a href="http://www.ict.ac.cn/">Institute of Computing Technology, Chinese Academy of Sciences</a>. 
+            I got my Ph.D. degree from Institute of Computing Technology, Chinese Academy of Sciences (2018.9~2023.6), supervised by <a href="https://scholar.google.com/citations?user=daBvGcMAAAAJ">Prof. Zhulin An</a> and <a href="https://scholar.google.com/citations?user=l34KxTYAAAAJ">Prof. Yongjun Xu</a>.
+            And I joined ICT, CAS in 2023.7, under the leadership of Director Yongjun Xu and Group Leader Zhulin An, focusing on Intelligent Optimization, especially Efficient AI.
         </div>
     </div>
 </div>
+
+
 <!--<div style="clear: both; background-color: #fff; margin-top: 1.5em; padding: .2em; padding-left: .3em;">-->
 
 
@@ -377,14 +404,9 @@
         <h2 id="research_interests">Research Interests
         </h2>
         <div class="paper">
-            <ul>
-                <li>Knowledge distillation for visual recognition models (e.g. image classification, object detection, semantic segmenation), visual generative models (e.g. diffusion),
-                    and multi-modal models (e.g. CLIP);</li>
-                    <li>Prompt learning for applying multi-modal large models to downstream visual recognition tasks; </li>
-                    <li>Image generation and editing based on Stable Diffusion;</li>
-                <li>Other model compression techniques, including but not limited to efficient network architecture design, pruning, quantization and dynamic inference; </li>
-            </ul>
-
+            Efficient techiques (including but not limited to knowledge distillation, quantization, lightweight architecture design, pruning, cache, and dynamic inference, etc) 
+            for visual recognition (e.g. image classification, object detection, semantic segmenation), 3D understanding and reconstruction (e.g. World Models, VGGT),
+            AIGC models (e.g. image/video generation, multi-modal large models), and Embodied AI (VLA models).
         </div>
     </div>
 </div>
