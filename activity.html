@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课题组团建活动</title>
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen">
+    <style>
+        /* --- 1. 基础设置 --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1.page-title {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+        }
+
+        /* --- 2. 时间轴容器 --- */
+        .timeline {
+            position: relative;
+            padding: 0;
+            list-style: none;
+        }
+
+        /* 中间的竖线 */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50px;
+            width: 3px;
+            background: #e9ecef;
+        }
+
+        /* --- 3. 每一个时间节点 --- */
+        .timeline-item {
+            position: relative;
+            margin-bottom: 60px;
+            padding-left: 80px;
+        }
+
+        /* 时间点上的圆圈 */
+        .timeline-marker {
+            position: absolute;
+            left: 41px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 4px solid #3498db;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        /* --- 4. 内容卡片 --- */
+        .timeline-content {
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .timeline-header h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+        }
+
+        .timeline-header .date-badge {
+            background: #eef2f5;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            font-weight: 600;
+        }
+
+        .timeline-desc {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        /* --- 5. 照片网格布局 --- */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); 
+            gap: 10px;
+        }
+
+        .photo-item {
+            position: relative;
+            width: 100%;
+            padding-top: 100%; 
+            overflow: hidden;
+            border-radius: 6px;
+            cursor: zoom-in; /* 鼠标变成放大镜图标 */
+        }
+
+        .photo-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            transition: transform 0.4s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* =========================================
+           新增样式：灯箱 (Lightbox) 效果
+           ========================================= */
+        .lightbox {
+            display: none; /* 默认隐藏 */
+            position: fixed;
+            z-index: 999; /* 保证在最上层 */
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9); /* 黑色半透明背景 */
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- 新增：地标元素样式 --- */
+        .location-tag {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #e74c3c; /* 地标使用醒目的红色 */
+            font-weight: 500;
+        }
+
+        /* 地标SVG图标样式 */
+        .location-icon {
+            width: 14px;
+            height: 14px;
+            margin-right: 4px;
+            fill: currentColor; /* 跟随文字颜色 */
+        }
+
+        /* 放大后的图片样式 */
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            width: auto;
+            max-width: 90%;
+            max-height: 90vh; /* 限制高度不超过屏幕90% */
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(255,255,255,0.2);
+            animation-name: zoom;
+            animation-duration: 0.3s;
+        }
+
+        /* 简单的放大动画 */
+        @keyframes zoom {
+            from {transform:scale(0.8); opacity: 0;}
+            to {transform:scale(1); opacity: 1;}
+        }
+
+        /* 关闭按钮 */
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* 响应式微调 */
+        @media (min-width: 768px) {
+            .photo-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation bar -->
+<div class="navbar">
+    <div class="navbar-logo">
+        <a href="index.html"><img src="./resources/images/ict.png"></a>
+    </div>
+    <div class="navbar-links">
+        <a href="index.html#research_interests">Research Interests</a>
+        <a href="index.html#news">News</a>
+        <a href="index.html#Recruiting">Recruiting</a>
+        <a href="index.html#confpapers">Publications</a>
+        <a href="index.html#Honor">Honor</a>
+        <a href="activity.html">Activity</a>
+        <!-- <a href="/html/record.html" class="record-button" id="recordButton">Record</a> -->
+    </div>
+</div>
+
+<div class="container">
+    <h1 class="page-title">课题组团建活动</h1>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <h3>组内已毕业学生聚餐</h3>
+                    <div class="location-tag">
+                            <svg class="location-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            北京
+                        </div>
+                    <span class="date-badge">2026年</span>
+                </div>
+                <div class="photo-grid">
+                    <div class="photo-item"><img src="resources/images/团建活动/biyeju.jpg" alt="团建照片1"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <h3>自助餐&&KTV</h3>
+                    <div class="location-tag">
+                            <svg class="location-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            北京
+                        </div>
+                    <span class="date-badge">2026年</span>
+                </div>
+                <div class="photo-grid">
+                    <div class="photo-item"><img src="resources/images/团建活动/zizhucan1.jpg" alt="团建照片1"></div>
+                    <div class="photo-item"><img src="resources/images/团建活动/zizhucan2.jpg" alt="团建照片2"></div>
+                    <div class="photo-item"><img src="resources/images/团建活动/zizhucan3.jpg" alt="团建照片2"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <h3>CSIG中国图象图形学学会青年科学家会议</h3>
+                    <div class="location-tag">
+                            <svg class="location-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            青岛
+                        </div>
+                    <span class="date-badge">2025年</span>
+                </div>
+                <div class="photo-grid">
+                    <div class="photo-item"><img src="resources/images/团建活动/csig1.jpg" alt="团建照片1"></div>
+                    <div class="photo-item"><img src="resources/images/团建活动/csig2.jpg" alt="团建照片2"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <h3>VALSE 2025</h3>
+                    <div class="location-tag">
+                            <svg class="location-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            珠海
+                        </div>
+                    <span class="date-badge">2025年</span>
+                </div>
+                <div class="photo-grid">
+                    <div class="photo-item"><img src="resources/images/团建活动/VALSE2025-1.jpg" alt="团建照片1"></div>
+                    <div class="photo-item"><img src="resources/images/团建活动/VALSE2025-2.jpg" alt="团建照片2"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <h3>VALSE 2024</h3>
+                    <div class="location-tag">
+                            <svg class="location-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            重庆
+                        </div>
+                    <span class="date-badge">2024年</span>
+                </div>
+                <div class="photo-grid">
+                    <div class="photo-item"><img src="resources/images/团建活动/valse2024-2.jpg" alt="团建照片1"></div>
+                    <div class="photo-item"><img src="resources/images/团建活动/valse2024-1.jpg" alt="团建照片2"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <h3>新疆烤全羊</h3>
+                    <div class="location-tag">
+                            <svg class="location-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            北京
+                        </div>
+                    <span class="date-badge">2024年</span>
+                </div>
+                <!-- <p class="timeline-desc">大家玩得很开心。</p>-->
+                <div class="photo-grid">
+                    <div class="photo-item"><img src="resources/images/团建活动/kaoyang1.jpg" alt="度假照片1"></div>
+                    <div class="photo-item"><img src="resources/images/团建活动/kaoyang2.jpg" alt="度假照片2"></div>
+                    <div class="photo-item"><img src="resources/images/团建活动/kaoyang3.jpg" alt="度假照片3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="myLightbox" class="lightbox">
+    <span class="close-btn">&times;</span>
+    <img class="lightbox-content" id="img01">
+</div>
+
+<script>
+    // 1. 获取灯箱元素
+    var modal = document.getElementById("myLightbox");
+    var modalImg = document.getElementById("img01");
+    var closeBtn = document.getElementsByClassName("close-btn")[0];
+
+    // 2. 获取所有的图片项
+    // 我们选择 .photo-item 下面的 img 标签
+    var images = document.querySelectorAll('.photo-item img');
+
+    // 3. 为每一张图片添加点击事件
+    images.forEach(function(img) {
+        img.onclick = function(){
+            modal.style.display = "flex"; // 显示灯箱 (用flex居中)
+            modalImg.src = this.src;      // 将被点击图片的src赋值给大图
+        }
+    });
+
+    // 4. 关闭功能：点击 'x' 关闭
+    closeBtn.onclick = function() { 
+        modal.style.display = "none";
+    }
+
+    // 5. 关闭功能：点击黑色背景也能关闭 (体验更好)
+    modal.onclick = function(event) {
+        // 如果点击的是背景层（而不是图片本身），则关闭
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>
