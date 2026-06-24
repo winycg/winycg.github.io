@@ -1,0 +1,29 @@
+<html>
+<head>
+<script>
+    function copyToClipboard() {
+        var codeBlock = document.querySelector("pre").innerText;
+        navigator.clipboard.writeText(codeBlock).then(function() {
+            document.getElementById('textHint').style.display = 'block';
+        }, function() {
+            document.getElementById('textHintError').style.display = 'block';
+        });
+    }
+</script>
+</head>
+<body>
+<pre>
+@InProceedings{Tang_2026_CVPR,
+    author = {Tang, Wenjing and Yang, Chuanguang and An, Zhulin and Huang, Libo and Diao, Boyu and Xu, Yongjun},
+    title = {EfficientVPR: Toward Efficient Visual Place Recognition via Scene-Aware Prompt Tuning and Adaptive Feature Enhancement},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month = {June},
+    year = {2026},
+    pages = {33738--33748}
+}
+</pre>
+<button class="copy-button" onclick="copyToClipboard()">copy</button>
+<p id="textHint" style="display: none;">Citation copied!</p>
+<p id="textHintError" style="display: none;">Copy failed, please copy manually!</p>
+</body>
+</html>

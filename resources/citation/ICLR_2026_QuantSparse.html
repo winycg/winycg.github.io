@@ -1,0 +1,28 @@
+<html>
+<head>
+<script>
+    function copyToClipboard() {
+        var codeBlock = document.querySelector("pre").innerText;
+        navigator.clipboard.writeText(codeBlock).then(function() {
+            document.getElementById('textHint').style.display = 'block';
+        }, function() {
+            document.getElementById('textHintError').style.display = 'block';
+        });
+    }
+</script>
+</head>
+<body>
+<pre>
+@inproceedings{feng2026quantsparse,
+    title = {QuantSparse: Comprehensively Compressing Video Diffusion Transformer with Model Quantization and Attention Sparsification},
+    author = {Feng, Weilun and Yang, Chuanguang and Qin, Haotong and Wu, Mingqiang and Li, Yuqi and Li, Xiangqi and An, Zhulin and Huang, Libo and Zhang, Yulun and Magno, Michele and Xu, Yongjun},
+    booktitle = {The Fourteenth International Conference on Learning Representations},
+    year = {2026},
+    url = {https://openreview.net/forum?id=4TAG3aQljJ}
+}
+</pre>
+<button class="copy-button" onclick="copyToClipboard()">copy</button>
+<p id="textHint" style="display: none;">Citation copied!</p>
+<p id="textHintError" style="display: none;">Copy failed, please copy manually!</p>
+</body>
+</html>

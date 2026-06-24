@@ -1,0 +1,29 @@
+<html>
+<head>
+<script>
+    function copyToClipboard() {
+        var codeBlock = document.querySelector("pre").innerText;
+        navigator.clipboard.writeText(codeBlock).then(function() {
+            document.getElementById('textHint').style.display = 'block';
+        }, function() {
+            document.getElementById('textHintError').style.display = 'block';
+        });
+    }
+</script>
+</head>
+<body>
+<pre>
+@InProceedings{An_2026_CVPR,
+    author = {An, Zijia and Diao, Boyu and Liu, Ruiqi and Huang, Libo and Yang, Chuanguang and Wang, Fei and An, Zhulin and Xu, Yongjun},
+    title = {Parameterized Prompt for Incremental Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month = {June},
+    year = {2026},
+    pages = {27600--27610}
+}
+</pre>
+<button class="copy-button" onclick="copyToClipboard()">copy</button>
+<p id="textHint" style="display: none;">Citation copied!</p>
+<p id="textHintError" style="display: none;">Copy failed, please copy manually!</p>
+</body>
+</html>

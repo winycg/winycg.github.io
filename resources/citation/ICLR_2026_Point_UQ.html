@@ -1,0 +1,28 @@
+<html>
+<head>
+<script>
+    function copyToClipboard() {
+        var codeBlock = document.querySelector("pre").innerText;
+        navigator.clipboard.writeText(codeBlock).then(function() {
+            document.getElementById('textHint').style.display = 'block';
+        }, function() {
+            document.getElementById('textHintError').style.display = 'block';
+        });
+    }
+</script>
+</head>
+<body>
+<pre>
+@inproceedings{li2026pointuq,
+    title = {Point-UQ: An Uncertainty-Quantification Paradigm for Point Cloud Few-Shot Class Incremental Learning},
+    author = {Li, Xiangqi and Huang, Libo and Zhao, Jiarui and Feng, Weilun and Yang, Chuanguang and An, Zhulin and Xu, Yongjun},
+    booktitle = {The Fourteenth International Conference on Learning Representations},
+    year = {2026},
+    url = {https://openreview.net/forum?id=fhVfyiiAqt}
+}
+</pre>
+<button class="copy-button" onclick="copyToClipboard()">copy</button>
+<p id="textHint" style="display: none;">Citation copied!</p>
+<p id="textHintError" style="display: none;">Copy failed, please copy manually!</p>
+</body>
+</html>

@@ -175,6 +175,109 @@ html,
             float: left;
             width: 200px;
             height: 150px;
+            object-fit: contain;
+            object-position: center;
+            box-sizing: border-box;
+            background: #f7f8fa;
+            cursor: zoom-in;
+        }
+
+        .image-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 32px;
+            box-sizing: border-box;
+            background: rgba(0, 0, 0, 0.88);
+        }
+
+        .image-lightbox.is-open {
+            display: flex;
+        }
+
+        .image-lightbox-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 100%;
+            max-height: 100%;
+            padding-left: 0 !important;
+        }
+
+        .image-lightbox-image {
+            display: block;
+            max-width: calc(100vw - 64px);
+            max-height: calc(100vh - 96px);
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            background: #fff;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+        }
+
+        .image-lightbox-caption {
+            max-width: calc(100vw - 96px);
+            margin-top: 10px;
+            color: #fff;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .image-lightbox-close {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            border: 0;
+            padding: 6px 12px;
+            color: #fff;
+            background: transparent;
+            font-size: 32px;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        div.paper div.paper-placeholder {
+            float: left;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height: 150px;
+            margin-right: 1em;
+            margin-bottom: 0.5em;
+            padding-left: 0;
+            border-radius: 6px;
+            box-sizing: border-box;
+            color: #fff;
+            background: linear-gradient(135deg, #0156a3, #4b8dcc);
+            text-align: center;
+            letter-spacing: 0.04em;
+        }
+
+        div.paper div.paper-placeholder.cvpr {
+            background: linear-gradient(135deg, #8f2432, #d86651);
+        }
+
+        div.paper div.paper-placeholder.iclr {
+            background: linear-gradient(135deg, #40308d, #8372d8);
+        }
+
+        div.paper div.paper-placeholder.www {
+            background: linear-gradient(135deg, #176c57, #43a382);
+        }
+
+        .paper-placeholder .venue-name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .paper-placeholder .venue-year {
+            margin-top: 8px;
+            font-size: 17px;
         }
 
         span.blurb {
